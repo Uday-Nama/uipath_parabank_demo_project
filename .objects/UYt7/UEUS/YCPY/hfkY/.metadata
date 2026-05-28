@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Username Password Log In",
+  "Type": "Element",
+  "TaxonomyType": "Container",
+  "Id": "hfkYh9dVS0qvYJgp6KWdTw",
+  "Reference": "5bX88Svy0UKvaNBs9eEQhg/hfkYh9dVS0qvYJgp6KWdTw",
+  "ParentRef": "5bX88Svy0UKvaNBs9eEQhg/YCPYyIVAqEiFaSQjHJEF_g",
+  "Created": "2026-05-28T22:57:21.7357925Z",
+  "Updated": "2026-05-28T22:57:21.7357925Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.31.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

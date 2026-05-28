@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Chrome ParaBank  Welcome  Online Banking(3)",
+  "Type": "Screen",
+  "Id": "R-i5Dz4Sxk6v0Y8cmKaktg",
+  "Reference": "5bX88Svy0UKvaNBs9eEQhg/R-i5Dz4Sxk6v0Y8cmKaktg",
+  "ParentRef": "5bX88Svy0UKvaNBs9eEQhg/zrPFnLl2dESmAc-lu0fuOQ",
+  "Created": "2026-05-28T07:36:47.4270559Z",
+  "Updated": "2026-05-28T07:36:47.4270559Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.31.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

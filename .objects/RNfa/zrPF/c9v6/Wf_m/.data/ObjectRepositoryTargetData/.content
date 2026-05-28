@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="lC65_Brk5UOxOPIoPRyhDA" Reference="5bX88Svy0UKvaNBs9eEQhg/Wf_mgAQ0r0ewKo4XXUZY_g" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="parabank.parasoft.com/parabank/openaccount.htm" DesignTimeRectangle="731, 696, 767, 44" ElementType="Text" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl parentid='openAccountResult' tag='P' type='' class='' matching:parentid='fuzzy' fuzzylevel:parentid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' /&gt;" Guid="f3bb0158-351e-442d-8305-a312f6359841" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ParaBank | Open Account' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V6" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target DesignTimeRectangle="685, 644, 858, 139" ElementType="Button" FuzzySelectorArgument="&lt;webctrl parentid='rightPanel' tag='DIV' type='' class='' aaname='            ' matching:parentid='fuzzy' fuzzylevel:parentid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Account Opened!&amp;#xA;&amp;#xA;Congratulations, your account is now open.&amp;#xA;&amp;#xA;Your new account number: 15897' /&gt;" Guid="05fe87de-f412-4963-82d8-33554600fdf5" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="706f91f081c5c17b2074a66b1afd82f3.jpg" xmlns="">0k4bpi3WiL0yNXSmMO0gMcQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">GetText</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

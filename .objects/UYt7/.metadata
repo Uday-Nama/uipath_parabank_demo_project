@@ -1,0 +1,12 @@
+﻿{
+  "Name": "Chrome ParaBank  Open Account",
+  "Type": "App",
+  "Id": "UYt7yprDkEy5yAMD8H_ETA",
+  "Reference": "5bX88Svy0UKvaNBs9eEQhg/UYt7yprDkEy5yAMD8H_ETA",
+  "Created": "2026-05-28T21:08:48.0602821Z",
+  "Updated": "2026-05-28T21:08:48.0602821Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.31.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

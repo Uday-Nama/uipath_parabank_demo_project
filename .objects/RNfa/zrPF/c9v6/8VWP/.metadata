@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Username Password Log I…",
+  "Type": "Element",
+  "Id": "8VWPhfJNuEylj_5eNCR2WQ",
+  "Reference": "5bX88Svy0UKvaNBs9eEQhg/8VWPhfJNuEylj_5eNCR2WQ",
+  "ParentRef": "5bX88Svy0UKvaNBs9eEQhg/c9v6Ay5VoE63UPjmrUkZfw",
+  "Created": "2026-05-27T23:13:05.3625872Z",
+  "Updated": "2026-05-27T23:13:05.3625872Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.31.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

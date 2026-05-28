@@ -1,0 +1,14 @@
+﻿{
+  "Name": "INPUT amount",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "ktHQplsqlEOYG33IeQMrsQ",
+  "Reference": "5bX88Svy0UKvaNBs9eEQhg/ktHQplsqlEOYG33IeQMrsQ",
+  "ParentRef": "5bX88Svy0UKvaNBs9eEQhg/E6ajKsU8Jkuyt24y66EFHg",
+  "Created": "2026-05-28T22:12:03.5180477Z",
+  "Updated": "2026-05-28T22:12:03.5180477Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.31.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

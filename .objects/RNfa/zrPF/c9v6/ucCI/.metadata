@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Open New Account(1)",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "ucCIlM3opkqy8DvYZiL2KQ",
+  "Reference": "5bX88Svy0UKvaNBs9eEQhg/ucCIlM3opkqy8DvYZiL2KQ",
+  "ParentRef": "5bX88Svy0UKvaNBs9eEQhg/c9v6Ay5VoE63UPjmrUkZfw",
+  "Created": "2026-05-28T10:16:25.9665586Z",
+  "Updated": "2026-05-28T10:16:25.9665586Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.31.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

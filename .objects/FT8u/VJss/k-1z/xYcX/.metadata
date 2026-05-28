@@ -1,0 +1,14 @@
+﻿{
+  "Name": "INPUT customer.address.…",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "xYcXszMwXEyqa66VKFcaZQ",
+  "Reference": "5bX88Svy0UKvaNBs9eEQhg/xYcXszMwXEyqa66VKFcaZQ",
+  "ParentRef": "5bX88Svy0UKvaNBs9eEQhg/k-1zHmekRk2D-ABMf5KvuA",
+  "Created": "2026-05-26T23:37:53.3709951Z",
+  "Updated": "2026-05-26T23:37:53.3709951Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.31.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

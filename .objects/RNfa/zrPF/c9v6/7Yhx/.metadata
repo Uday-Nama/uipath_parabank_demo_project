@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Open New Account(2)",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "7YhxgQ1F2kypDrsO3TG5dg",
+  "Reference": "5bX88Svy0UKvaNBs9eEQhg/7YhxgQ1F2kypDrsO3TG5dg",
+  "ParentRef": "5bX88Svy0UKvaNBs9eEQhg/c9v6Ay5VoE63UPjmrUkZfw",
+  "Created": "2026-05-28T10:27:06.8390366Z",
+  "Updated": "2026-05-28T10:27:06.8390366Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.31.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

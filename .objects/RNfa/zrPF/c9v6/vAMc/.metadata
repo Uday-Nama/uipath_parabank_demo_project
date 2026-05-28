@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Customer Login",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "vAMc33WDAU-5vYNnvx-XWw",
+  "Reference": "5bX88Svy0UKvaNBs9eEQhg/vAMc33WDAU-5vYNnvx-XWw",
+  "ParentRef": "5bX88Svy0UKvaNBs9eEQhg/c9v6Ay5VoE63UPjmrUkZfw",
+  "Created": "2026-05-27T23:07:35.7082512Z",
+  "Updated": "2026-05-27T23:07:35.7082512Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.31.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

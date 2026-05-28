@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryScreenData ContentHash="uHNyflbQgUydclRjuoZJIw" Reference="5bX88Svy0UKvaNBs9eEQhg/vilb_QwfrkalT9NRVNfz7A" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:p="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryScreenData.Data>
+    <TargetApp x:Key="TargetApp" Area="0, 0, 0, 0" ContentHash="fEoY0pUmvEuAU5smRfdnNA" FilePath="C:\Program Files\Google\Chrome\Application\chrome.exe" Reference="5bX88Svy0UKvaNBs9eEQhg/vilb_QwfrkalT9NRVNfz7A" Version="V3">
+      <TargetApp.Selector>
+        <p:InArgument x:TypeArguments="x:String" />
+      </TargetApp.Selector>
+      <TargetApp.Url>
+        <p:InArgument x:TypeArguments="x:String" />
+      </TargetApp.Url>
+      <TargetApp.WorkingDirectory>
+        <p:InArgument x:TypeArguments="x:String" />
+      </TargetApp.WorkingDirectory>
+    </TargetApp>
+  </ObjectRepositoryScreenData.Data>
+</ObjectRepositoryScreenData>

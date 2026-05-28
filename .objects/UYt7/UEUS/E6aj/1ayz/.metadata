@@ -1,0 +1,14 @@
+﻿{
+  "Name": "INPUT downPayment",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "1ayz1dYv8kGQU9bJSeE7Rg",
+  "Reference": "5bX88Svy0UKvaNBs9eEQhg/1ayz1dYv8kGQU9bJSeE7Rg",
+  "ParentRef": "5bX88Svy0UKvaNBs9eEQhg/E6ajKsU8Jkuyt24y66EFHg",
+  "Created": "2026-05-28T22:13:11.5643186Z",
+  "Updated": "2026-05-28T22:13:11.5643186Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.31.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

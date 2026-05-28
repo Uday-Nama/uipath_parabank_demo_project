@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="71QZBwfhlEeVHAikYsdwaA" Reference="5bX88Svy0UKvaNBs9eEQhg/vJSdrVcxv0uWViGLQBbhjw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="parabank.parasoft.com/parabank/openaccount.htm" DesignTimeRectangle="731, 740, 767, 43" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='newAccountId' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='openAccountResult' tag='P' class='' matching:class='fuzzy' fuzzylevel:class='0.0' aaname=' ' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="abea188d-e0f7-4b9b-830c-412434b1abec" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ParaBank | Open Account' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V6" WaitForReadyArgument="None">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="1">
+          <Target DesignTimeRectangle="685, 644, 858, 139" ElementType="Button" FuzzySelectorArgument="&lt;webctrl parentid='rightPanel' tag='DIV' type='' class='' aaname='            ' matching:parentid='fuzzy' fuzzylevel:parentid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Account Opened!&amp;#xA;&amp;#xA;Congratulations, your account is now open.&amp;#xA;&amp;#xA;Your new account number: 27330' /&gt;" Guid="17fe3d57-af7a-46b1-9ea0-bc963bfb88c4" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="fdb5e339298f619b0e319486b9a49f27.jpg" xmlns="">06HxTJpP-vkiRYADD6OBgBQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">GetText</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

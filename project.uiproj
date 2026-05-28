@@ -1,0 +1,6 @@
+{
+  "Name": "wu_task",
+  "ProjectType": "Process",
+  "Description": "wu_task\r\n",
+  "MainFile": "Main.xaml"
+}

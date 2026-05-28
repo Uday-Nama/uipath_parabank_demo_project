@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Request Loan",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "rZIxhMA8WUyL9QdrfFO5EA",
+  "Reference": "5bX88Svy0UKvaNBs9eEQhg/rZIxhMA8WUyL9QdrfFO5EA",
+  "ParentRef": "5bX88Svy0UKvaNBs9eEQhg/E6ajKsU8Jkuyt24y66EFHg",
+  "Created": "2026-05-28T21:16:19.7352259Z",
+  "Updated": "2026-05-28T21:16:19.7352259Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.31.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Apply Now",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "rHW0mXhWbEi251I9Vc8R6w",
+  "Reference": "5bX88Svy0UKvaNBs9eEQhg/rHW0mXhWbEi251I9Vc8R6w",
+  "ParentRef": "5bX88Svy0UKvaNBs9eEQhg/E6ajKsU8Jkuyt24y66EFHg",
+  "Created": "2026-05-28T22:19:38.4187761Z",
+  "Updated": "2026-05-28T22:19:38.4187761Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.31.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
