@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-16"?>
-<ObjectRepositoryTargetData ContentHash="Muhjm1EL_USF6DgMUSESwA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ObjectRepositoryTargetData ContentHash="DIfA70C6f0O8D5j9JytnRQ" Reference="5bX88Svy0UKvaNBs9eEQhg/dN7SwU0QqEyQbqCSnvY5HQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <ObjectRepositoryTargetData.Data>
-    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="parabank.parasoft.com/parabank/requestloan.htm" DesignTimeRectangle="439, 849, 246, 36" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='Log Out' parentid='leftPanel' tag='A' /&gt;" Guid="d56fa73e-f5bf-4da9-ae1a-fce38eb8a0e0" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ParaBank | Loan Request' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
-      <imageRef attrName="InformativeScreenshot" originalValue="aa6a4189e164993ea95b515f14a8f712.jpg" xmlns="">0UnaMSgQjNkeGMkr8kz0ZHA</imageRef>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="parabank.parasoft.com/parabank/requestloan.htm" DesignTimeRectangle="439, 849, 246, 36" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='Log Out' parentid='leftPanel' tag='A' /&gt;" Guid="d56fa73e-f5bf-4da9-ae1a-fce38eb8a0e0" ScopeSelectorArgument="&lt;html app='chrome.exe'  /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="aa6a4189e164993ea95b515f14a8f712.jpg" xmlns="">0fEU0DUQgfUaGPcqZrRJvog</imageRef>
     </TargetAnchorable>
     <x:String x:Key="ActivityType">Click</x:String>
   </ObjectRepositoryTargetData.Data>

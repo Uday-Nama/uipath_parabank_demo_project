@@ -1,5 +1,6 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="log_out" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
+    <x:Property Name="argument1" Type="InArgument(x:String)" />
     <x:Property Name="out_logs_logout" Type="OutArgument(x:String)" />
   </x:Members>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
@@ -99,7 +100,7 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="log_out" sap:VirtualizedContainerService.HintSize="654.6666666666666,1702.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="log_out" sap:VirtualizedContainerService.HintSize="630,1702.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -125,7 +126,7 @@
               </sap:WorkflowViewStateService.ViewState>
               <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Log Out'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,195.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3c1b71b7-83cc-4ad0-8f09-9d980ebbcaa6" Version="V5">
                 <uix:NClick.Target>
-                  <uix:TargetAnchorable BrowserURL="parabank.parasoft.com/parabank/requestloan.htm" ContentHash="Muhjm1EL_USF6DgMUSESwA" DesignTimeRectangle="439, 849, 246, 36" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='Log Out' parentid='leftPanel' tag='A' /&gt;" Guid="d56fa73e-f5bf-4da9-ae1a-fce38eb8a0e0" InformativeScreenshot="aa6a4189e164993ea95b515f14a8f712.jpg" Reference="5bX88Svy0UKvaNBs9eEQhg/dN7SwU0QqEyQbqCSnvY5HQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ParaBank | Loan Request' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                  <uix:TargetAnchorable BrowserURL="parabank.parasoft.com/parabank/requestloan.htm" ContentHash="DIfA70C6f0O8D5j9JytnRQ" DesignTimeRectangle="439, 849, 246, 36" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='Log Out' parentid='leftPanel' tag='A' /&gt;" Guid="d56fa73e-f5bf-4da9-ae1a-fce38eb8a0e0" InformativeScreenshot="aa6a4189e164993ea95b515f14a8f712.jpg" Reference="5bX88Svy0UKvaNBs9eEQhg/dN7SwU0QqEyQbqCSnvY5HQ" ScopeSelectorArgument="&lt;html app='chrome.exe'  /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
                 </uix:NClick.Target>
               </uix:NClick>
               <uix:NCheckState DisplayName="Check App State 'Username Password Log In'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="452,1147.3333333333333" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="3c1b71b7-83cc-4ad0-8f09-9d980ebbcaa6" Timeout="10" Version="V5">
@@ -139,19 +140,28 @@
                     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1">
                       <ui:LogMessage.Message>
                         <InArgument x:TypeArguments="x:Object">
-                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">"User logged out Successfully"</CSharpValue>
+                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">
+                            <CSharpValue.Result>
+                              <OutArgument x:TypeArguments="x:Object" />
+                            </CSharpValue.Result>"User logged out Successfully"</CSharpValue>
                         </InArgument>
                       </ui:LogMessage.Message>
                     </ui:LogMessage>
                     <Assign sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_1">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">
-                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">out_logs_logout</CSharpReference>
+                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">
+                            <CSharpReference.Result>
+                              <OutArgument x:TypeArguments="Location(x:String)" />
+                            </CSharpReference.Result>out_logs_logout</CSharpReference>
                         </OutArgument>
                       </Assign.To>
                       <Assign.Value>
                         <InArgument x:TypeArguments="x:String">
-                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">out_logs_logout+Environment.NewLine+"-----User logged out Successfully"</CSharpValue>
+                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">
+                            <CSharpValue.Result>
+                              <OutArgument x:TypeArguments="x:String" />
+                            </CSharpValue.Result>out_logs_logout+"User logged out Successfully ||"</CSharpValue>
                         </InArgument>
                       </Assign.Value>
                     </Assign>
@@ -167,19 +177,28 @@
                     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_4">
                       <ui:LogMessage.Message>
                         <InArgument x:TypeArguments="x:Object">
-                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">"User not logged out something wrong"</CSharpValue>
+                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">
+                            <CSharpValue.Result>
+                              <OutArgument x:TypeArguments="x:Object" />
+                            </CSharpValue.Result>"User not logged out something wrong"</CSharpValue>
                         </InArgument>
                       </ui:LogMessage.Message>
                     </ui:LogMessage>
                     <Assign sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_4">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">
-                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">out_logs_logout</CSharpReference>
+                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">
+                            <CSharpReference.Result>
+                              <OutArgument x:TypeArguments="Location(x:String)" />
+                            </CSharpReference.Result>out_logs_logout</CSharpReference>
                         </OutArgument>
                       </Assign.To>
                       <Assign.Value>
                         <InArgument x:TypeArguments="x:String">
-                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">out_logs_logout+Environment.NewLine+"-----User not logged out"</CSharpValue>
+                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">
+                            <CSharpValue.Result>
+                              <OutArgument x:TypeArguments="x:String" />
+                            </CSharpValue.Result>out_logs_logout+"User not logged out || "</CSharpValue>
                         </InArgument>
                       </Assign.Value>
                     </Assign>
@@ -201,7 +220,10 @@
         </uix:NApplicationCard.OCREngine>
         <uix:NApplicationCard.OpenMode>
           <InArgument x:TypeArguments="uix:NAppOpenMode">
-            <CSharpValue x:TypeArguments="uix:NAppOpenMode" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">UiPath.UIAutomationNext.Enums.NAppOpenMode.Never</CSharpValue>
+            <CSharpValue x:TypeArguments="uix:NAppOpenMode" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">
+              <CSharpValue.Result>
+                <OutArgument x:TypeArguments="uix:NAppOpenMode" />
+              </CSharpValue.Result>UiPath.UIAutomationNext.Enums.NAppOpenMode.Never</CSharpValue>
           </InArgument>
         </uix:NApplicationCard.OpenMode>
         <uix:NApplicationCard.TargetApp>

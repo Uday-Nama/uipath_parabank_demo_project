@@ -111,7 +111,7 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Account_opening" sap:VirtualizedContainerService.HintSize="654.6666666666666,3252" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Account_opening" sap:VirtualizedContainerService.HintSize="558,3252" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -154,7 +154,7 @@
                     <uix:NSelectItem DisplayName="Select Item 'CHECKING'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,196" sap2010:WorkflowViewState.IdRef="NSelectItem_2" ScopeIdentifier="8ab2cdbc-391d-4130-97ab-bc2322ce5c36" Version="V5">
                       <uix:NSelectItem.Item>
                         <InArgument x:TypeArguments="x:String">
-                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">Account_type</CSharpValue>
+                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_31">Account_type.ToUpper()</CSharpValue>
                         </InArgument>
                       </uix:NSelectItem.Item>
                       <uix:NSelectItem.Items>
@@ -182,7 +182,7 @@
                       </Assign.To>
                       <Assign.Value>
                         <InArgument x:TypeArguments="x:String">
-                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25" xml:space="preserve">out_step_logs_open+" "+"-----Account Type" +Account_type+"  "+"selected"</CSharpValue>
+                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_28" xml:space="preserve">out_step_logs_open+"  "+"Account Type" +Account_type+"  "+"selected ||"</CSharpValue>
                         </InArgument>
                       </Assign.Value>
                     </Assign>
@@ -257,7 +257,7 @@
                             </Assign.To>
                             <Assign.Value>
                               <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_26">out_step_logs_open+" "+Environment.NewLine+"Account opened successfully for account number -"+Account_number</CSharpValue>
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_29">out_step_logs_open+" "+"Account opened successfully for account number -"+Account_number+" ||"</CSharpValue>
                               </InArgument>
                             </Assign.Value>
                           </Assign>
@@ -297,7 +297,7 @@
                             </Assign.To>
                             <Assign.Value>
                               <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_27">out_step_logs_open+" "+Environment.NewLine+"Something went wrong with Account Opening"</CSharpValue>
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">out_step_logs_open+" "+" Something went wrong with Account Opening ||"</CSharpValue>
                               </InArgument>
                             </Assign.Value>
                           </Assign>

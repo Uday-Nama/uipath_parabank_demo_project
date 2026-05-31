@@ -258,7 +258,7 @@
         </Assign.To>
         <Assign.Value>
           <InArgument x:TypeArguments="x:String">
-            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22" xml:space="preserve">out_logs_customer_report+Environment.NewLine+"-----Customer report generated for" +"  "+r_user_name</CSharpValue>
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23" xml:space="preserve">out_logs_customer_report+"Customer report generated for" +"  "+r_user_name+" || "</CSharpValue>
           </InArgument>
         </Assign.Value>
       </Assign>

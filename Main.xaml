@@ -49,6 +49,9 @@
       <x:String>System.Reflection</x:String>
       <x:String>UiPath.DataTableUtilities</x:String>
       <x:String>System.Numerics</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -117,18 +120,10 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="654.6666666666666,4212.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="740,8078" sap2010:WorkflowViewState.IdRef="Sequence_3">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Double" Name="real_euro_rate" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_customers" />
-      <Variable x:TypeArguments="x:Boolean" Name="successreg">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:String x:Key="SourceIdRef">InvokeWorkflowFile_5</x:String>
-            <x:String x:Key="SourcePropertyName">success_reg</x:String>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </Variable>
       <Variable x:TypeArguments="x:Boolean" Name="successopen">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -149,33 +144,38 @@
       <Variable x:TypeArguments="x:String" Name="m_loan_status" />
       <Variable x:TypeArguments="x:Double" Name="m_down_payment" />
       <Variable x:TypeArguments="x:String" Name="step_log" />
+      <Variable x:TypeArguments="x:Boolean" Name="Empty_value_check_for_registration" />
+      <Variable x:TypeArguments="x:Boolean" Name="Data_check_for_loan" />
+      <Variable x:TypeArguments="x:Boolean" Name="Data_check_for_registration" />
+      <Variable x:TypeArguments="x:Boolean" Name="successreg" />
+      <Variable x:TypeArguments="x:Boolean" Name="Data_check_for_account" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap:VirtualizedContainerService.HintSize="594,4190" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence sap:VirtualizedContainerService.HintSize="702,8055.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="560,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2">
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="668,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2">
         <ui:LogMessage.Message>
           <InArgument x:TypeArguments="x:Object">
             <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">"automation starting..."</CSharpValue>
           </InArgument>
         </ui:LogMessage.Message>
       </ui:LogMessage>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="560,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_3">
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="668,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_3">
         <ui:LogMessage.Message>
           <InArgument x:TypeArguments="x:Object">
             <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_31">"Reading Customer data for automation"</CSharpValue>
           </InArgument>
         </ui:LogMessage.Message>
       </ui:LogMessage>
-      <ui:ReadCsvFile PathResource="{x:Null}" Delimitator="Comma" DelimitatorForViewModel="Comma" DisplayName="Read CSV" sap:VirtualizedContainerService.HintSize="560,172" sap2010:WorkflowViewState.IdRef="ReadCsvFile_2">
+      <ui:ReadCsvFile PathResource="{x:Null}" Delimitator="Comma" DelimitatorForViewModel="Comma" DisplayName="Read CSV" sap:VirtualizedContainerService.HintSize="668,172" sap2010:WorkflowViewState.IdRef="ReadCsvFile_2">
         <ui:ReadCsvFile.DataTable>
           <OutArgument x:TypeArguments="sd:DataTable">
             <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">dt_customers</CSharpReference>
@@ -183,37 +183,37 @@
         </ui:ReadCsvFile.DataTable>
         <ui:ReadCsvFile.FilePath>
           <InArgument x:TypeArguments="x:String">
-            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">Environment.CurrentDirectory+"\\data\\"+"cust_data.csv"</CSharpValue>
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_68">Environment.CurrentDirectory+"\\data\\"+"ParaBank users.csv"</CSharpValue>
           </InArgument>
         </ui:ReadCsvFile.FilePath>
       </ui:ReadCsvFile>
-      <ui:BuildDataTable DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="560,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Name&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Phone_Number&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;SSN&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Username&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Account_number&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Account_Type&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Loan_amount&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Down_payment_in_USD&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Down_payment_in_EUR&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Loan_status&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Logs&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;300&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Name /&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
+      <ui:BuildDataTable DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="668,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Name&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Phone_Number&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;SSN&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Username&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Account_number&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Account_Type&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Loan_amount&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Down_payment_in_USD&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Down_payment_in_EUR&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Loan_status&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Logs&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;300&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Name /&gt;&#xA;  &lt;/TableName&gt;&#xA;&lt;/NewDataSet&gt;">
         <ui:BuildDataTable.DataTable>
           <OutArgument x:TypeArguments="sd:DataTable">
             <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">operator_data_table</CSharpReference>
           </OutArgument>
         </ui:BuildDataTable.DataTable>
       </ui:BuildDataTable>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="USD_to_EUR - Invoke Workflow File (USD_to_EUR.xaml)" sap:VirtualizedContainerService.HintSize="560,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="USD_to_EUR.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="USD_to_EUR - Invoke Workflow File (USD_to_EUR.xaml)" sap:VirtualizedContainerService.HintSize="668,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="USD_to_EUR.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <OutArgument x:TypeArguments="x:Double" x:Key="Euro_rate_out">
             <CSharpReference x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpReference`1_20">real_euro_rate</CSharpReference>
           </OutArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
-      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="560,3045.3333333333335" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="668,7178" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
         <ui:ForEachRow.Body>
           <ActivityAction x:TypeArguments="sd:DataRow">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="sd:DataRow" Name="currentRow" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="558,2861.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="666,7003.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Assign sap:VirtualizedContainerService.HintSize="524,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign sap:VirtualizedContainerService.HintSize="632,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_1">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:String">
                     <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">step_logs</CSharpReference>
@@ -225,186 +225,461 @@
                   </InArgument>
                 </Assign.Value>
               </Assign>
-              <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Chrome ParaBank  Welcome  Online Banking(3)" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="524,2234" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="7c840be2-1cd5-4817-bede-735230e11687" Version="V2">
+              <Assign sap:VirtualizedContainerService.HintSize="632,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_6">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="sd:DataTable">
+                    <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_21">operator_data_table</CSharpReference>
+                  </OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="sd:DataTable">
+                    <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_44">operator_data_table.Clone()</CSharpValue>
+                  </InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Data_check_before_automation - Invoke Workflow File (Data_check_before_automation.xaml)" sap:VirtualizedContainerService.HintSize="632,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Data_check_before_automation.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <OutArgument x:TypeArguments="x:Boolean" x:Key="Data_check_flag_account">
+                    <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_31">Data_check_for_account</CSharpReference>
+                  </OutArgument>
+                  <OutArgument x:TypeArguments="x:Boolean" x:Key="Data_check_flag_loan">
+                    <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_24">Data_check_for_loan</CSharpReference>
+                  </OutArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="Data" />
+                  <OutArgument x:TypeArguments="x:String" x:Key="out_log_data_check">
+                    <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_25">step_log</CSharpReference>
+                  </OutArgument>
+                  <OutArgument x:TypeArguments="x:Boolean" x:Key="Data_check_flag_registration">
+                    <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_26">Data_check_for_registration</CSharpReference>
+                  </OutArgument>
+                  <InArgument x:TypeArguments="sd:DataRow" x:Key="Customer_row">
+                    <CSharpValue x:TypeArguments="sd:DataRow" sap2010:WorkflowViewState.IdRef="CSharpValue`1_48">currentRow</CSharpValue>
+                  </InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+              <Assign sap:VirtualizedContainerService.HintSize="632,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_11">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">
+                    <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_27">step_logs</CSharpReference>
+                  </OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">
+                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_49">step_logs+step_log</CSharpValue>
+                  </InArgument>
+                </Assign.Value>
+              </Assign>
+              <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Chrome ParaBank  Welcome  Online Banking(3)" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="632,5792.666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="7c840be2-1cd5-4817-bede-735230e11687" Version="V2">
                 <uix:NApplicationCard.Body>
                   <ActivityAction x:TypeArguments="x:Object">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="522,2030" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="630,5588.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="register - Invoke Workflow File (register.xaml)" sap:VirtualizedContainerService.HintSize="488,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="register.xaml">
-                        <ui:InvokeWorkflowFile.Arguments>
-                          <OutArgument x:TypeArguments="x:String" x:Key="out_step_logs">
-                            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_10">step_log</CSharpReference>
-                          </OutArgument>
-                          <OutArgument x:TypeArguments="x:Boolean" x:Key="success_reg">
-                            <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">successreg</CSharpReference>
-                          </OutArgument>
-                          <InArgument x:TypeArguments="sd:DataRow" x:Key="in_row">
-                            <CSharpValue x:TypeArguments="sd:DataRow" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">currentRow</CSharpValue>
-                          </InArgument>
-                        </ui:InvokeWorkflowFile.Arguments>
-                      </ui:InvokeWorkflowFile>
-                      <Assign sap:VirtualizedContainerService.HintSize="488,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_2">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="x:String">
-                            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_11">step_logs</CSharpReference>
-                          </OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="x:String">
-                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_32">step_logs+" "+Environment.NewLine+step_log</CSharpValue>
-                          </InArgument>
-                        </Assign.Value>
-                      </Assign>
-                      <If sap:VirtualizedContainerService.HintSize="488,1616" sap2010:WorkflowViewState.IdRef="If_1">
+                      <If sap:VirtualizedContainerService.HintSize="596,5528.666666666667" sap2010:WorkflowViewState.IdRef="If_5">
                         <If.Condition>
                           <InArgument x:TypeArguments="x:Boolean">
-                            <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">successreg==true</CSharpValue>
+                            <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_50">Data_check_for_registration==false</CSharpValue>
                           </InArgument>
                         </If.Condition>
                         <If.Then>
-                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="486,1394.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="594,4994" sap2010:WorkflowViewState.IdRef="Sequence_17">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Account_opening - Invoke Workflow File (Account_opening.xaml)" sap:VirtualizedContainerService.HintSize="452,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Account_opening.xaml">
+                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="register - Invoke Workflow File (register.xaml)" sap:VirtualizedContainerService.HintSize="560,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="register.xaml">
                               <ui:InvokeWorkflowFile.Arguments>
-                                <OutArgument x:TypeArguments="x:String" x:Key="out_step_logs_open">
-                                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_19">step_log</CSharpReference>
+                                <OutArgument x:TypeArguments="x:String" x:Key="out_step_logs">
+                                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_10">step_log</CSharpReference>
                                 </OutArgument>
-                                <OutArgument x:TypeArguments="x:String" x:Key="Account_number">
-                                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">accountnumber</CSharpReference>
+                                <OutArgument x:TypeArguments="x:Boolean" x:Key="success_reg">
+                                  <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">successreg</CSharpReference>
                                 </OutArgument>
-                                <OutArgument x:TypeArguments="x:Boolean" x:Key="success_open">
-                                  <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">successopen</CSharpReference>
-                                </OutArgument>
-                                <InArgument x:TypeArguments="x:String" x:Key="Account_type">
-                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">currentRow["Account Type"].ToString()</CSharpValue>
+                                <InArgument x:TypeArguments="sd:DataRow" x:Key="in_row">
+                                  <CSharpValue x:TypeArguments="sd:DataRow" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">currentRow</CSharpValue>
                                 </InArgument>
                               </ui:InvokeWorkflowFile.Arguments>
                             </ui:InvokeWorkflowFile>
-                            <Assign sap:VirtualizedContainerService.HintSize="452,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_3">
+                            <Assign sap:VirtualizedContainerService.HintSize="560,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_2">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:String">
-                                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_12">step_logs</CSharpReference>
+                                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_11">step_logs</CSharpReference>
                                 </OutArgument>
                               </Assign.To>
                               <Assign.Value>
                                 <InArgument x:TypeArguments="x:String">
-                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_33">step_logs+Environment.NewLine+" "+step_log</CSharpValue>
+                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_36">step_logs+step_log</CSharpValue>
                                 </InArgument>
                               </Assign.Value>
                             </Assign>
-                            <If sap:VirtualizedContainerService.HintSize="452,635.3333333333334" sap2010:WorkflowViewState.IdRef="If_2">
+                            <If sap:VirtualizedContainerService.HintSize="560,4580" sap2010:WorkflowViewState.IdRef="If_1">
                               <If.Condition>
                                 <InArgument x:TypeArguments="x:Boolean">
-                                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">successopen</CSharpValue>
+                                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_57">successreg==true &amp;&amp; Data_check_for_account==false</CSharpValue>
                                 </InArgument>
                               </If.Condition>
                               <If.Then>
-                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,404.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="558,3543.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_9">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="request_loan - Invoke Workflow File (request_loan.xaml)" sap:VirtualizedContainerService.HintSize="416,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="request_loan.xaml">
+                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Account_opening - Invoke Workflow File (Account_opening.xaml)" sap:VirtualizedContainerService.HintSize="524,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Account_opening.xaml">
                                     <ui:InvokeWorkflowFile.Arguments>
-                                      <OutArgument x:TypeArguments="x:String" x:Key="out_step_logs_request">
-                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_13">step_log</CSharpReference>
+                                      <OutArgument x:TypeArguments="x:String" x:Key="out_step_logs_open">
+                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_19">step_log</CSharpReference>
                                       </OutArgument>
-                                      <OutArgument x:TypeArguments="x:Boolean" x:Key="loan_success" />
-                                      <OutArgument x:TypeArguments="x:String" x:Key="loan_account_number" />
-                                      <OutArgument x:TypeArguments="x:Double" x:Key="down_payment">
-                                        <CSharpReference x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">m_down_payment</CSharpReference>
+                                      <OutArgument x:TypeArguments="x:String" x:Key="Account_number">
+                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">accountnumber</CSharpReference>
                                       </OutArgument>
-                                      <OutArgument x:TypeArguments="x:String" x:Key="loan_status">
-                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">m_loan_status</CSharpReference>
+                                      <OutArgument x:TypeArguments="x:Boolean" x:Key="success_open">
+                                        <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">successopen</CSharpReference>
                                       </OutArgument>
-                                      <InArgument x:TypeArguments="x:String" x:Key="Account_number">
-                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">accountnumber</CSharpValue>
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="x:Double" x:Key="initial_deposit">
-                                        <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">Convert.ToDouble(currentRow["Initial Deposit"].ToString())</CSharpValue>
+                                      <InArgument x:TypeArguments="x:String" x:Key="Account_type">
+                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">currentRow["Account Type"].ToString()</CSharpValue>
                                       </InArgument>
                                     </ui:InvokeWorkflowFile.Arguments>
                                   </ui:InvokeWorkflowFile>
-                                  <Assign sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                  <Assign sap:VirtualizedContainerService.HintSize="524,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_3">
                                     <Assign.To>
                                       <OutArgument x:TypeArguments="x:String">
-                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_14">step_logs</CSharpReference>
+                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_12">step_logs</CSharpReference>
                                       </OutArgument>
                                     </Assign.To>
                                     <Assign.Value>
                                       <InArgument x:TypeArguments="x:String">
-                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">step_logs+Environment.NewLine+step_log</CSharpValue>
+                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_37">step_logs+step_log</CSharpValue>
+                                      </InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <If sap:VirtualizedContainerService.HintSize="524,2784.6666666666665" sap2010:WorkflowViewState.IdRef="If_2">
+                                    <If.Condition>
+                                      <InArgument x:TypeArguments="x:Boolean">
+                                        <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_58">successopen &amp;&amp; Data_check_for_loan==false</CSharpValue>
+                                      </InArgument>
+                                    </If.Condition>
+                                    <If.Then>
+                                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="522,582" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="request_loan - Invoke Workflow File (request_loan.xaml)" sap:VirtualizedContainerService.HintSize="488,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="request_loan.xaml">
+                                          <ui:InvokeWorkflowFile.Arguments>
+                                            <OutArgument x:TypeArguments="x:String" x:Key="out_step_logs_request">
+                                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_13">step_log</CSharpReference>
+                                            </OutArgument>
+                                            <OutArgument x:TypeArguments="x:Boolean" x:Key="loan_success" />
+                                            <OutArgument x:TypeArguments="x:String" x:Key="loan_account_number" />
+                                            <OutArgument x:TypeArguments="x:Double" x:Key="down_payment">
+                                              <CSharpReference x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">m_down_payment</CSharpReference>
+                                            </OutArgument>
+                                            <OutArgument x:TypeArguments="x:String" x:Key="loan_status">
+                                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">m_loan_status</CSharpReference>
+                                            </OutArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="Account_number">
+                                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">accountnumber</CSharpValue>
+                                            </InArgument>
+                                            <InArgument x:TypeArguments="x:Double" x:Key="initial_deposit">
+                                              <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">Convert.ToDouble(currentRow["Initial Deposit"].ToString())</CSharpValue>
+                                            </InArgument>
+                                          </ui:InvokeWorkflowFile.Arguments>
+                                        </ui:InvokeWorkflowFile>
+                                        <Assign sap:VirtualizedContainerService.HintSize="488,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:String">
+                                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_14">step_logs</CSharpReference>
+                                            </OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:String">
+                                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_38">step_logs+step_log</CSharpValue>
+                                            </InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="log_out - Invoke Workflow File (log_out.xaml)" sap:VirtualizedContainerService.HintSize="488,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="log_out.xaml">
+                                          <ui:InvokeWorkflowFile.Arguments>
+                                            <InArgument x:TypeArguments="x:String" x:Key="argument1" />
+                                            <OutArgument x:TypeArguments="x:String" x:Key="out_logs_logout">
+                                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_32">step_log</CSharpReference>
+                                            </OutArgument>
+                                          </ui:InvokeWorkflowFile.Arguments>
+                                        </ui:InvokeWorkflowFile>
+                                      </Sequence>
+                                    </If.Then>
+                                    <If.Else>
+                                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="522,2062.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Chrome ParaBank  Open Account(1)" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="488,1658.6666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" ScopeGuid="76664ed8-e29f-4390-92ea-5f54c8ef5812" Version="V2">
+                                          <uix:NApplicationCard.Body>
+                                            <ActivityAction x:TypeArguments="x:Object">
+                                              <ActivityAction.Argument>
+                                                <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                                              </ActivityAction.Argument>
+                                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="486,1454.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Log Out'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,247.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="76664ed8-e29f-4390-92ea-5f54c8ef5812" Version="V5">
+                                                  <uix:NClick.Target>
+                                                    <uix:TargetAnchorable BrowserURL="parabank.parasoft.com/parabank/openaccount.htm" ContentHash="j6-Yv5a5e0KDGDD4_uKcpw" DesignTimeRectangle="439, 933, 246, 36" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='Log Out' parentid='leftPanel' tag='A' /&gt;" Guid="fece7db6-5819-42cc-8e8b-d52c50d46dc5" InformativeScreenshot="d6b3c06ea96c913fd5d9be363b2865d8.jpg" Reference="5bX88Svy0UKvaNBs9eEQhg/26-6Yq1tWUG8AahBQO_18A" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ParaBank | Open Account' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                                                  </uix:NClick.Target>
+                                                </uix:NClick>
+                                                <uix:NCheckState DisplayName="Check App State 'Username Password Log In'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="452,1147.3333333333333" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="76664ed8-e29f-4390-92ea-5f54c8ef5812" Timeout="10" Version="V5">
+                                                  <uix:NCheckState.IfExists>
+                                                    <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,404" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_7">
+                                                        <ui:LogMessage.Message>
+                                                          <InArgument x:TypeArguments="x:Object">
+                                                            <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_61">
+                                                              <CSharpValue.Result>
+                                                                <OutArgument x:TypeArguments="x:Object" />
+                                                              </CSharpValue.Result>"User logged out Successfully"</CSharpValue>
+                                                          </InArgument>
+                                                        </ui:LogMessage.Message>
+                                                      </ui:LogMessage>
+                                                      <Assign sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_15">
+                                                        <Assign.To>
+                                                          <OutArgument x:TypeArguments="x:String">
+                                                            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_35">step_logs</CSharpReference>
+                                                          </OutArgument>
+                                                        </Assign.To>
+                                                        <Assign.Value>
+                                                          <InArgument x:TypeArguments="x:String">
+                                                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_65">step_logs+"User logged out Successfully ||"</CSharpValue>
+                                                          </InArgument>
+                                                        </Assign.Value>
+                                                      </Assign>
+                                                    </Sequence>
+                                                  </uix:NCheckState.IfExists>
+                                                  <uix:NCheckState.IfNotExists>
+                                                    <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,404" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_8">
+                                                        <ui:LogMessage.Message>
+                                                          <InArgument x:TypeArguments="x:Object">
+                                                            <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_63">
+                                                              <CSharpValue.Result>
+                                                                <OutArgument x:TypeArguments="x:Object" />
+                                                              </CSharpValue.Result>"User not logged out something wrong"</CSharpValue>
+                                                          </InArgument>
+                                                        </ui:LogMessage.Message>
+                                                      </ui:LogMessage>
+                                                      <Assign sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_16">
+                                                        <Assign.To>
+                                                          <OutArgument x:TypeArguments="x:String">
+                                                            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_36">step_logs</CSharpReference>
+                                                          </OutArgument>
+                                                        </Assign.To>
+                                                        <Assign.Value>
+                                                          <InArgument x:TypeArguments="x:String">
+                                                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_66">step_logs+"User not logged out || "</CSharpValue>
+                                                          </InArgument>
+                                                        </Assign.Value>
+                                                      </Assign>
+                                                    </Sequence>
+                                                  </uix:NCheckState.IfNotExists>
+                                                  <uix:NCheckState.Target>
+                                                    <uix:TargetAnchorable BrowserURL="parabank.parasoft.com/parabank/index.htm" ContentHash="FIWvnNjJZUyED9Wc_YwHog" DesignTimeRectangle="439, 569, 246, 174" ElementType="Container" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='FORM' /&gt;" Guid="e9efdaca-4690-4f59-b7ee-cfae9e012786" InformativeScreenshot="cdd3230c27f01d9dd4af85ffaa22201e.jpg" Reference="5bX88Svy0UKvaNBs9eEQhg/hfkYh9dVS0qvYJgp6KWdTw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ParaBank | Welcome | Online Banking' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                                                  </uix:NCheckState.Target>
+                                                </uix:NCheckState>
+                                              </Sequence>
+                                            </ActivityAction>
+                                          </uix:NApplicationCard.Body>
+                                          <uix:NApplicationCard.OCREngine>
+                                            <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd2:Rectangle, x:String))">
+                                              <ActivityFunc.Argument>
+                                                <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                                              </ActivityFunc.Argument>
+                                            </ActivityFunc>
+                                          </uix:NApplicationCard.OCREngine>
+                                          <uix:NApplicationCard.TargetApp>
+                                            <uix:TargetApp Area="-11, -11, 1942, 1030" BrowserType="Chrome" ContentHash="M33SWYqDR0-peZbpEFruKQ" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAGeSURBVDhPpVO7LkRRFF0xCMa7QoFQTulReMSjmUx8AwViMtrVeYxKNH4AHyESK/5gKMQnkBAtOiQSspJ9b64xnUlOZt9z1lp777XPAagCqDKoCqhtUCVQTajWkP4ce49aCYyx5hR84OAT1Beob1A3oBZADaNay6NaM9G4VlAKjLHmlH1gtYScrHdQ90HYBTUBqh3UVQZjTqWRwCOoY1AboBZBjQXZFTQUcM/noC5AXUbGXJTtNQRqDlQvqANQzyFwDaqYmNMMqi3+e0DNg5oC1QfqBNRb7Bnv6tyifUKSxWsyRGZBvYK6i3g9Ygsatxn+jGQFXLJL9+ZAZLUHrshnbqE/sEthbj4r0Bmbzuhvg02ygNcWqDNQg6DGQe1F66nAaJS1mmnHZZtoUcduy6IdoKbT1iOwITbmML5nQL2AOg0jfQ8s1A2qJWN4k8HFGIlH8wRqJyZhgv1IkpjgMXrUHrlHX/JB/UXyYTJWm+qy10AdRYI/F6mRgMnucz9u3wOojwzml0D9Y3JprsCvMIdqrStMXgZ1myGnj+lfz/kHp+WNZsv1D4cAAAAASUVORK5CYII=" InformativeScreenshot="13bf0bf41e886aef5e5f569028c6d215.jpg" Reference="5bX88Svy0UKvaNBs9eEQhg/Nn986olWlkKdPlSGaXniug" Selector="&lt;html app='chrome.exe' title='ParaBank | Open Account' /&gt;" Url="https://parabank.parasoft.com/parabank/openaccount.htm" Version="V3" />
+                                          </uix:NApplicationCard.TargetApp>
+                                        </uix:NApplicationCard>
+                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="488,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_6">
+                                          <ui:LogMessage.Message>
+                                            <InArgument x:TypeArguments="x:Object">
+                                              <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_59">"Can not request a loan"</CSharpValue>
+                                            </InArgument>
+                                          </ui:LogMessage.Message>
+                                        </ui:LogMessage>
+                                        <Assign sap:VirtualizedContainerService.HintSize="488,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_14">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:String">
+                                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_30">step_logs</CSharpReference>
+                                            </OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:String">
+                                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_60">step_logs+ "Could not request a lon because of previous issue || "</CSharpValue>
+                                            </InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                      </Sequence>
+                                    </If.Else>
+                                  </If>
+                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="customer_report - Invoke Workflow File (customer_report.xaml)" sap:VirtualizedContainerService.HintSize="524,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="customer_report.xaml">
+                                    <ui:InvokeWorkflowFile.Arguments>
+                                      <OutArgument x:TypeArguments="x:String" x:Key="out_logs_customer_report">
+                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_15">step_log</CSharpReference>
+                                      </OutArgument>
+                                      <InArgument x:TypeArguments="x:Double" x:Key="r_euro_rate">
+                                        <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">real_euro_rate</CSharpValue>
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="r_loan_status">
+                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">m_loan_status</CSharpValue>
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="x:Double" x:Key="r_down_payment">
+                                        <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">m_down_payment</CSharpValue>
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="x:Double" x:Key="r_loan_amount">10000</InArgument>
+                                      <InArgument x:TypeArguments="x:Double" x:Key="r_deposit" />
+                                      <InArgument x:TypeArguments="x:String" x:Key="r_account_number">
+                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">accountnumber</CSharpValue>
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="r_user_name">
+                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">currentRow["Username"].ToString()</CSharpValue>
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="r_customer_name">
+                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_26" xml:space="preserve">currentRow["First Name"].ToString() + " " + 
+    currentRow["Last Name"].ToString()</CSharpValue>
+                                      </InArgument>
+                                    </ui:InvokeWorkflowFile.Arguments>
+                                  </ui:InvokeWorkflowFile>
+                                  <Assign sap:VirtualizedContainerService.HintSize="524,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_5">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">
+                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_16">step_logs</CSharpReference>
+                                      </OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">
+                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_39">step_logs+step_log</CSharpValue>
                                       </InArgument>
                                     </Assign.Value>
                                   </Assign>
                                 </Sequence>
                               </If.Then>
                               <If.Else>
-                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="558,906" sap2010:WorkflowViewState.IdRef="Sequence_10">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="524,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_4">
+                                    <ui:LogMessage.Message>
+                                      <InArgument x:TypeArguments="x:Object">
+                                        <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_52">"Account could not be opened because of the data or registration issue"</CSharpValue>
+                                      </InArgument>
+                                    </ui:LogMessage.Message>
+                                  </ui:LogMessage>
+                                  <Assign sap:VirtualizedContainerService.HintSize="524,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_12">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">
+                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_28">step_logs</CSharpReference>
+                                      </OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">
+                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_67">step_logs +" Account could not be opened "</CSharpValue>
+                                      </InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Chrome ParaBank  Customer Created" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="524,492.6666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="DebuggerApi" ScopeGuid="ae09ba9f-65b0-447c-a2af-7ea28c2ce9d3" Version="V2">
+                                    <uix:NApplicationCard.Body>
+                                      <ActivityAction x:TypeArguments="x:Object">
+                                        <ActivityAction.Argument>
+                                          <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                                        </ActivityAction.Argument>
+                                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,298" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Log Out'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,238" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ae09ba9f-65b0-447c-a2af-7ea28c2ce9d3" Version="V5">
+                                            <uix:NClick.Target>
+                                              <uix:TargetAnchorable BrowserURL="parabank.parasoft.com/parabank/register.htm" ContentHash="YUDzVPTggkmlpl-UVv7msA" DesignTimeRectangle="439, 933, 246, 36" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='Log Out' parentid='leftPanel' tag='A' /&gt;" Guid="5f5a0dfc-948c-4a56-abda-c5ba985ac322" InformativeScreenshot="d6b3c06ea96c913fd5d9be363b2865d8.jpg" Reference="5bX88Svy0UKvaNBs9eEQhg/eBJzlK2H9kifeJQQZtcUiw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ParaBank | Customer Created' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                                            </uix:NClick.Target>
+                                          </uix:NClick>
+                                        </Sequence>
+                                      </ActivityAction>
+                                    </uix:NApplicationCard.Body>
+                                    <uix:NApplicationCard.OCREngine>
+                                      <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd2:Rectangle, x:String))">
+                                        <ActivityFunc.Argument>
+                                          <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                                        </ActivityFunc.Argument>
+                                      </ActivityFunc>
+                                    </uix:NApplicationCard.OCREngine>
+                                    <uix:NApplicationCard.TargetApp>
+                                      <uix:TargetApp Area="-11, -11, 1942, 1030" BrowserType="Chrome" ContentHash="Wg3fV4PyBkur9fR1BKvY4w" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAGeSURBVDhPpVO7LkRRFF0xCMa7QoFQTulReMSjmUx8AwViMtrVeYxKNH4AHyESK/5gKMQnkBAtOiQSspJ9b64xnUlOZt9z1lp777XPAagCqDKoCqhtUCVQTajWkP4ce49aCYyx5hR84OAT1Beob1A3oBZADaNay6NaM9G4VlAKjLHmlH1gtYScrHdQ90HYBTUBqh3UVQZjTqWRwCOoY1AboBZBjQXZFTQUcM/noC5AXUbGXJTtNQRqDlQvqANQzyFwDaqYmNMMqi3+e0DNg5oC1QfqBNRb7Bnv6tyifUKSxWsyRGZBvYK6i3g9Ygsatxn+jGQFXLJL9+ZAZLUHrshnbqE/sEthbj4r0Bmbzuhvg02ygNcWqDNQg6DGQe1F66nAaJS1mmnHZZtoUcduy6IdoKbT1iOwITbmML5nQL2AOg0jfQ8s1A2qJWN4k8HFGIlH8wRqJyZhgv1IkpjgMXrUHrlHX/JB/UXyYTJWm+qy10AdRYI/F6mRgMnucz9u3wOojwzml0D9Y3JprsCvMIdqrStMXgZ1myGnj+lfz/kHp+WNZsv1D4cAAAAASUVORK5CYII=" InformativeScreenshot="a23b04e60f98ce3cb4325b4633f62b82.jpg" Reference="5bX88Svy0UKvaNBs9eEQhg/o6mUjSESeUyA5UqTL83RYg" Selector="&lt;html app='chrome.exe' title='ParaBank | Customer Created' /&gt;" Url="https://parabank.parasoft.com/parabank/register.htm" Version="V3">
+                                        <uix:TargetApp.Arguments>
+                                          <InArgument x:TypeArguments="x:String" />
+                                        </uix:TargetApp.Arguments>
+                                        <uix:TargetApp.WorkingDirectory>
+                                          <InArgument x:TypeArguments="x:String" />
+                                        </uix:TargetApp.WorkingDirectory>
+                                      </uix:TargetApp>
+                                    </uix:NApplicationCard.TargetApp>
+                                  </uix:NApplicationCard>
                                 </Sequence>
                               </If.Else>
                             </If>
-                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="customer_report - Invoke Workflow File (customer_report.xaml)" sap:VirtualizedContainerService.HintSize="452,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="customer_report.xaml">
-                              <ui:InvokeWorkflowFile.Arguments>
-                                <OutArgument x:TypeArguments="x:String" x:Key="out_logs_customer_report">
-                                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_15">step_log</CSharpReference>
-                                </OutArgument>
-                                <InArgument x:TypeArguments="x:Double" x:Key="r_euro_rate">
-                                  <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">real_euro_rate</CSharpValue>
-                                </InArgument>
-                                <InArgument x:TypeArguments="x:String" x:Key="r_loan_status">
-                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">m_loan_status</CSharpValue>
-                                </InArgument>
-                                <InArgument x:TypeArguments="x:Double" x:Key="r_down_payment">
-                                  <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">m_down_payment</CSharpValue>
-                                </InArgument>
-                                <InArgument x:TypeArguments="x:Double" x:Key="r_loan_amount">10000</InArgument>
-                                <InArgument x:TypeArguments="x:Double" x:Key="r_deposit" />
-                                <InArgument x:TypeArguments="x:String" x:Key="r_account_number">
-                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">accountnumber</CSharpValue>
-                                </InArgument>
-                                <InArgument x:TypeArguments="x:String" x:Key="r_user_name">
-                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">currentRow["Username"].ToString()</CSharpValue>
-                                </InArgument>
-                                <InArgument x:TypeArguments="x:String" x:Key="r_customer_name">
-                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_26" xml:space="preserve">currentRow["First Name"].ToString() + " " + 
-    currentRow["Last Name"].ToString()</CSharpValue>
-                                </InArgument>
-                              </ui:InvokeWorkflowFile.Arguments>
-                            </ui:InvokeWorkflowFile>
-                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="log_out - Invoke Workflow File (log_out.xaml)" sap:VirtualizedContainerService.HintSize="452,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="log_out.xaml">
-                              <ui:InvokeWorkflowFile.Arguments>
-                                <OutArgument x:TypeArguments="x:String" x:Key="out_logs_logout">
-                                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_17">step_log</CSharpReference>
-                                </OutArgument>
-                              </ui:InvokeWorkflowFile.Arguments>
-                            </ui:InvokeWorkflowFile>
                           </Sequence>
                         </If.Then>
                         <If.Else>
-                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="486,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="594,404" sap2010:WorkflowViewState.IdRef="Sequence_18">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="560,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_5">
+                              <ui:LogMessage.Message>
+                                <InArgument x:TypeArguments="x:Object">
+                                  <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_54">"User account can not be created since there are missing values "</CSharpValue>
+                                </InArgument>
+                              </ui:LogMessage.Message>
+                            </ui:LogMessage>
+                            <Assign sap:VirtualizedContainerService.HintSize="560,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_13">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">
+                                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_29">step_logs</CSharpReference>
+                                </OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">
+                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_55" xml:space="preserve">step_logs + " Account  can not be created since there are missing values  || "</CSharpValue>
+                                </InArgument>
+                              </Assign.Value>
+                            </Assign>
                           </Sequence>
                         </If.Else>
                       </If>
@@ -429,19 +704,7 @@
                   </uix:TargetApp>
                 </uix:NApplicationCard.TargetApp>
               </uix:NApplicationCard>
-              <Assign sap:VirtualizedContainerService.HintSize="524,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_5">
-                <Assign.To>
-                  <OutArgument x:TypeArguments="x:String">
-                    <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_16">step_logs</CSharpReference>
-                  </OutArgument>
-                </Assign.To>
-                <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">
-                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_35">step_logs+Environment.NewLine+step_log</CSharpValue>
-                  </InArgument>
-                </Assign.Value>
-              </Assign>
-              <ui:AddDataRow DataRow="{x:Null}" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="524,214" sap2010:WorkflowViewState.IdRef="AddDataRow_1">
+              <ui:AddDataRow DataRow="{x:Null}" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="632,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_1">
                 <ui:AddDataRow.ArrayRow>
                   <InArgument x:TypeArguments="s:Object[]">
                     <CSharpValue x:TypeArguments="s:Object[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_27" xml:space="preserve">new object[]
@@ -468,6 +731,18 @@
                   </InOutArgument>
                 </ui:AddDataRow.DataTable>
               </ui:AddDataRow>
+              <ui:AppendRange DisplayName="Append Range Workbook" sap:VirtualizedContainerService.HintSize="632,220" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="customer_data">
+                <ui:AppendRange.DataTable>
+                  <InArgument x:TypeArguments="sd:DataTable">
+                    <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_41">operator_data_table</CSharpValue>
+                  </InArgument>
+                </ui:AppendRange.DataTable>
+                <ui:AppendRange.WorkbookPath>
+                  <InArgument x:TypeArguments="x:String">
+                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_42">Environment.CurrentDirectory+"\\data\\"+"operator_report.xlsx"</CSharpValue>
+                  </InArgument>
+                </ui:AppendRange.WorkbookPath>
+              </ui:AppendRange>
             </Sequence>
           </ActivityAction>
         </ui:ForEachRow.Body>
@@ -477,18 +752,6 @@
           </InArgument>
         </ui:ForEachRow.DataTable>
       </ui:ForEachRow>
-      <ui:AppendWriteCsvFile PathResource="{x:Null}" AddHeaders="False" CsvAction="Write" Delimitator="Comma" DelimitatorForViewModel="Comma" DisplayName="Write CSV" sap:VirtualizedContainerService.HintSize="560,267.3333333333333" sap2010:WorkflowViewState.IdRef="AppendWriteCsvFile_1" ShouldQuote="True">
-        <ui:AppendWriteCsvFile.DataTable>
-          <InArgument x:TypeArguments="sd:DataTable">
-            <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_29">operator_data_table</CSharpValue>
-          </InArgument>
-        </ui:AppendWriteCsvFile.DataTable>
-        <ui:AppendWriteCsvFile.FilePath>
-          <InArgument x:TypeArguments="x:String">
-            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_28">Environment.CurrentDirectory+"\\data\\"+"operator_report.csv"</CSharpValue>
-          </InArgument>
-        </ui:AppendWriteCsvFile.FilePath>
-      </ui:AppendWriteCsvFile>
     </Sequence>
   </Sequence>
 </Activity>

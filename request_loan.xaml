@@ -52,6 +52,7 @@
       <x:String>System.Security</x:String>
       <x:String>System.ComponentModel</x:String>
       <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -112,226 +113,294 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="request_loan" sap:VirtualizedContainerService.HintSize="654.6666666666666,3218" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="request_loan" sap:VirtualizedContainerService.HintSize="594,4166" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap:VirtualizedContainerService.HintSize="558,3195.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence sap:VirtualizedContainerService.HintSize="594,4143.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Chrome ParaBank  Open Account" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="524,3112.6666666666665" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="6a7d7d83-cee6-4628-a96f-d0b81bad27f7" Version="V2">
+      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Chrome ParaBank  Open Account" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="560,4060.6666666666665" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="6a7d7d83-cee6-4628-a96f-d0b81bad27f7" Version="V2">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="522,2918" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="558,3866" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Assign sap:VirtualizedContainerService.HintSize="488,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_1">
-                <Assign.To>
-                  <OutArgument x:TypeArguments="x:Double">
-                    <CSharpReference x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">down_payment</CSharpReference>
-                  </OutArgument>
-                </Assign.To>
-                <Assign.Value>
-                  <InArgument x:TypeArguments="x:Double">
-                    <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">Math.Round(initial_deposit*0.2,2)</CSharpValue>
+              <If sap:VirtualizedContainerService.HintSize="524,3806" sap2010:WorkflowViewState.IdRef="If_2">
+                <If.Condition>
+                  <InArgument x:TypeArguments="x:Boolean">
+                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">initial_deposit!=0 || initial_deposit!=null</CSharpValue>
                   </InArgument>
-                </Assign.Value>
-              </Assign>
-              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="488,2681.3333333333335" sap2010:WorkflowViewState.IdRef="TryCatch_1">
-                <TryCatch.Try>
-                  <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="486,2368" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                </If.Condition>
+                <If.Then>
+                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="522,2918" sap2010:WorkflowViewState.IdRef="Sequence_9">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Request Loan'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,195.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6a7d7d83-cee6-4628-a96f-d0b81bad27f7" Version="V5">
-                      <uix:NClick.Target>
-                        <uix:TargetAnchorable BrowserURL="parabank.parasoft.com/parabank/openaccount.htm" ContentHash="90W6X70YM0KXKZ-8iNr0sA" DesignTimeRectangle="439, 813, 246, 36" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='Request Loan' parentid='leftPanel' tag='A' /&gt;" Guid="4b664455-2425-4c72-b67f-516d9f9c52bf" InformativeScreenshot="9e6d7c703ac179fe14fe75ce079635e0.jpg" Reference="5bX88Svy0UKvaNBs9eEQhg/rZIxhMA8WUyL9QdrfFO5EA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ParaBank | Open Account' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
-                      </uix:NClick.Target>
-                    </uix:NClick>
-                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'INPUT amount'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,248" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="SameAsCard" ScopeIdentifier="6a7d7d83-cee6-4628-a96f-d0b81bad27f7" Text="10000" Version="V5">
-                      <uix:NTypeInto.Target>
-                        <uix:TargetAnchorable BrowserURL="parabank.parasoft.com/parabank/requestloan.htm" ContentHash="NZW7WOWu3ki9CEWPxzAczw" DesignTimeRectangle="975, 626, 308, 26" ElementType="InputBox" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='amount' tableRow='1' tag='INPUT' /&gt;" Guid="d53ea918-a475-4c94-a481-4bc8b8d56be0" InformativeScreenshot="8015c51645de1f4a6d00086e0931a504.jpg" Reference="5bX88Svy0UKvaNBs9eEQhg/ktHQplsqlEOYG33IeQMrsQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ParaBank | Loan Request' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
-                      </uix:NTypeInto.Target>
-                      <uix:NTypeInto.VerifyOptions>
-                        <uix:VerifyExecutionTypeIntoOptions Mode="Appears">
-                          <uix:VerifyExecutionTypeIntoOptions.Retry>
-                            <InArgument x:TypeArguments="x:Boolean" />
-                          </uix:VerifyExecutionTypeIntoOptions.Retry>
-                          <uix:VerifyExecutionTypeIntoOptions.Timeout>
-                            <InArgument x:TypeArguments="x:Double" />
-                          </uix:VerifyExecutionTypeIntoOptions.Timeout>
-                        </uix:VerifyExecutionTypeIntoOptions>
-                      </uix:NTypeInto.VerifyOptions>
-                    </uix:NTypeInto>
-                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'INPUT downPayment'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,248" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="SameAsCard" ScopeIdentifier="6a7d7d83-cee6-4628-a96f-d0b81bad27f7" Version="V5">
-                      <uix:NTypeInto.Target>
-                        <uix:TargetAnchorable BrowserURL="parabank.parasoft.com/parabank/requestloan.htm" ContentHash="fOBu5FxTIEq8nj_69LnnGA" DesignTimeRectangle="975, 662, 308, 26" ElementType="InputBox" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='downPayment' tableRow='2' tag='INPUT' /&gt;" Guid="999b6b80-2d2b-41cb-a599-4cb52c2f9452" InformativeScreenshot="1ee7c89c8ced0724f22ae3488e725f79.jpg" Reference="5bX88Svy0UKvaNBs9eEQhg/1ayz1dYv8kGQU9bJSeE7Rg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ParaBank | Loan Request' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
-                      </uix:NTypeInto.Target>
-                      <uix:NTypeInto.Text>
-                        <InArgument x:TypeArguments="x:String">
-                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">down_payment.ToString()</CSharpValue>
-                        </InArgument>
-                      </uix:NTypeInto.Text>
-                      <uix:NTypeInto.VerifyOptions>
-                        <uix:VerifyExecutionTypeIntoOptions Mode="Appears">
-                          <uix:VerifyExecutionTypeIntoOptions.Retry>
-                            <InArgument x:TypeArguments="x:Boolean" />
-                          </uix:VerifyExecutionTypeIntoOptions.Retry>
-                          <uix:VerifyExecutionTypeIntoOptions.Timeout>
-                            <InArgument x:TypeArguments="x:Double" />
-                          </uix:VerifyExecutionTypeIntoOptions.Timeout>
-                        </uix:VerifyExecutionTypeIntoOptions>
-                      </uix:NTypeInto.VerifyOptions>
-                    </uix:NTypeInto>
-                    <uix:NSelectItem DisplayName="Select Item '13455'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,196" sap2010:WorkflowViewState.IdRef="NSelectItem_1" ScopeIdentifier="6a7d7d83-cee6-4628-a96f-d0b81bad27f7" Version="V5">
-                      <uix:NSelectItem.Item>
-                        <InArgument x:TypeArguments="x:String">
-                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">Account_number</CSharpValue>
-                        </InArgument>
-                      </uix:NSelectItem.Item>
-                      <uix:NSelectItem.Items>
-                        <scg:List x:TypeArguments="x:String" Capacity="1">
-                          <x:String>13455</x:String>
-                        </scg:List>
-                      </uix:NSelectItem.Items>
-                      <uix:NSelectItem.Target>
-                        <uix:TargetAnchorable BrowserURL="parabank.parasoft.com/parabank/requestloan.htm" ContentHash="nevlE1w8l0y_lzblZD9ZrA" DesignTimeRectangle="975, 698, 210, 24" ElementType="DropDown" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='fromAccountId' tableRow='3' tag='SELECT' /&gt;" Guid="69e04261-3f22-4d5f-b31b-36f9c9a57509" InformativeScreenshot="312046aab6badf62ea93ebda324866c7.jpg" Reference="5bX88Svy0UKvaNBs9eEQhg/_zoRsxfix0yknA3kBwaW-w" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ParaBank | Loan Request' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
-                      </uix:NSelectItem.Target>
-                    </uix:NSelectItem>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Apply Now'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,195.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6a7d7d83-cee6-4628-a96f-d0b81bad27f7" Version="V5">
-                      <uix:NClick.Target>
-                        <uix:TargetAnchorable BrowserURL="parabank.parasoft.com/parabank/requestloan.htm" ContentHash="-SjEZRZSME-pt7jXuJX4vg" DesignTimeRectangle="975, 732, 136, 28" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='4' tag='INPUT' /&gt;" Guid="02e18b01-71b2-4da7-80b3-88dcf1af4820" InformativeScreenshot="559e34b59f13e66ee5433bd555af09b3.jpg" Reference="5bX88Svy0UKvaNBs9eEQhg/rHW0mXhWbEi251I9Vc8R6w" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ParaBank | Loan Request' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
-                      </uix:NClick.Target>
-                    </uix:NClick>
-                    <uix:NGetText DisplayName="Get Text 'Approved'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,143.33333333333334" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="6a7d7d83-cee6-4628-a96f-d0b81bad27f7" Version="V5">
-                      <uix:NGetText.Target>
-                        <uix:TargetAnchorable BrowserURL="parabank.parasoft.com/parabank/requestloan.htm" ContentHash="mA7cCJN_JEuxR7oeYyyfAQ" DesignTimeRectangle="931, 702, 529, 32" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl parentid='requestLoanResult' tag='TABLE' /&gt;&lt;webctrl id='loanStatus' tableRow='3' tag='TD' /&gt;" Guid="dfadfc7b-642f-4a40-a723-ddcb7c11e92b" InformativeScreenshot="78a7713ede0fd6cd789505a1e74bc4cb.jpg" Reference="5bX88Svy0UKvaNBs9eEQhg/23Y3X-MCWUyp2pc3IIIFiw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ParaBank | Loan Request' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
-                      </uix:NGetText.Target>
-                      <uix:NGetText.TextString>
-                        <OutArgument x:TypeArguments="x:String">
-                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">loan_status</CSharpReference>
+                    <Assign sap:VirtualizedContainerService.HintSize="488,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_1">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Double">
+                          <CSharpReference x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">down_payment</CSharpReference>
                         </OutArgument>
-                      </uix:NGetText.TextString>
-                    </uix:NGetText>
-                    <If sap:VirtualizedContainerService.HintSize="452,738" sap2010:WorkflowViewState.IdRef="If_1">
-                      <If.Condition>
-                        <InArgument x:TypeArguments="x:Boolean">
-                          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">loan_status=="Approved"</CSharpValue>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Double">
+                          <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">Math.Round(initial_deposit*0.2,2)</CSharpValue>
                         </InArgument>
-                      </If.Condition>
-                      <If.Then>
-                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,370.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      </Assign.Value>
+                    </Assign>
+                    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="488,2681.3333333333335" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                      <TryCatch.Try>
+                        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="486,2368" sap2010:WorkflowViewState.IdRef="Sequence_13">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <uix:NGetText DisplayName="Get Text '14232'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,143.33333333333334" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="6a7d7d83-cee6-4628-a96f-d0b81bad27f7" Version="V5">
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Request Loan'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,195.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6a7d7d83-cee6-4628-a96f-d0b81bad27f7" Version="V5">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="parabank.parasoft.com/parabank/openaccount.htm" ContentHash="90W6X70YM0KXKZ-8iNr0sA" DesignTimeRectangle="439, 813, 246, 36" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='Request Loan' parentid='leftPanel' tag='A' /&gt;" Guid="4b664455-2425-4c72-b67f-516d9f9c52bf" InformativeScreenshot="9e6d7c703ac179fe14fe75ce079635e0.jpg" Reference="5bX88Svy0UKvaNBs9eEQhg/rZIxhMA8WUyL9QdrfFO5EA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ParaBank | Open Account' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'INPUT amount'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,248" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="SameAsCard" ScopeIdentifier="6a7d7d83-cee6-4628-a96f-d0b81bad27f7" Text="10000" Version="V5">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="parabank.parasoft.com/parabank/requestloan.htm" ContentHash="NZW7WOWu3ki9CEWPxzAczw" DesignTimeRectangle="975, 626, 308, 26" ElementType="InputBox" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='amount' tableRow='1' tag='INPUT' /&gt;" Guid="d53ea918-a475-4c94-a481-4bc8b8d56be0" InformativeScreenshot="8015c51645de1f4a6d00086e0931a504.jpg" Reference="5bX88Svy0UKvaNBs9eEQhg/ktHQplsqlEOYG33IeQMrsQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ParaBank | Loan Request' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                            </uix:NTypeInto.Target>
+                            <uix:NTypeInto.VerifyOptions>
+                              <uix:VerifyExecutionTypeIntoOptions Mode="Appears">
+                                <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                  <InArgument x:TypeArguments="x:Boolean" />
+                                </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                  <InArgument x:TypeArguments="x:Double" />
+                                </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                              </uix:VerifyExecutionTypeIntoOptions>
+                            </uix:NTypeInto.VerifyOptions>
+                          </uix:NTypeInto>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'INPUT downPayment'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,248" sap2010:WorkflowViewState.IdRef="NTypeInto_4" InteractionMode="SameAsCard" ScopeIdentifier="6a7d7d83-cee6-4628-a96f-d0b81bad27f7" Version="V5">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="parabank.parasoft.com/parabank/requestloan.htm" ContentHash="fOBu5FxTIEq8nj_69LnnGA" DesignTimeRectangle="975, 662, 308, 26" ElementType="InputBox" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='downPayment' tableRow='2' tag='INPUT' /&gt;" Guid="999b6b80-2d2b-41cb-a599-4cb52c2f9452" InformativeScreenshot="1ee7c89c8ced0724f22ae3488e725f79.jpg" Reference="5bX88Svy0UKvaNBs9eEQhg/1ayz1dYv8kGQU9bJSeE7Rg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ParaBank | Loan Request' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                            </uix:NTypeInto.Target>
+                            <uix:NTypeInto.Text>
+                              <InArgument x:TypeArguments="x:String">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">down_payment.ToString()</CSharpValue>
+                              </InArgument>
+                            </uix:NTypeInto.Text>
+                            <uix:NTypeInto.VerifyOptions>
+                              <uix:VerifyExecutionTypeIntoOptions Mode="Appears">
+                                <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                  <InArgument x:TypeArguments="x:Boolean" />
+                                </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                  <InArgument x:TypeArguments="x:Double" />
+                                </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                              </uix:VerifyExecutionTypeIntoOptions>
+                            </uix:NTypeInto.VerifyOptions>
+                          </uix:NTypeInto>
+                          <uix:NSelectItem DisplayName="Select Item '13455'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,196" sap2010:WorkflowViewState.IdRef="NSelectItem_2" ScopeIdentifier="6a7d7d83-cee6-4628-a96f-d0b81bad27f7" Version="V5">
+                            <uix:NSelectItem.Item>
+                              <InArgument x:TypeArguments="x:String">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">Account_number</CSharpValue>
+                              </InArgument>
+                            </uix:NSelectItem.Item>
+                            <uix:NSelectItem.Items>
+                              <scg:List x:TypeArguments="x:String" Capacity="1">
+                                <x:String>13455</x:String>
+                              </scg:List>
+                            </uix:NSelectItem.Items>
+                            <uix:NSelectItem.Target>
+                              <uix:TargetAnchorable BrowserURL="parabank.parasoft.com/parabank/requestloan.htm" ContentHash="nevlE1w8l0y_lzblZD9ZrA" DesignTimeRectangle="975, 698, 210, 24" ElementType="DropDown" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='fromAccountId' tableRow='3' tag='SELECT' /&gt;" Guid="69e04261-3f22-4d5f-b31b-36f9c9a57509" InformativeScreenshot="312046aab6badf62ea93ebda324866c7.jpg" Reference="5bX88Svy0UKvaNBs9eEQhg/_zoRsxfix0yknA3kBwaW-w" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ParaBank | Loan Request' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                            </uix:NSelectItem.Target>
+                          </uix:NSelectItem>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Apply Now'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,195.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6a7d7d83-cee6-4628-a96f-d0b81bad27f7" Version="V5">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="parabank.parasoft.com/parabank/requestloan.htm" ContentHash="-SjEZRZSME-pt7jXuJX4vg" DesignTimeRectangle="975, 732, 136, 28" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='4' tag='INPUT' /&gt;" Guid="02e18b01-71b2-4da7-80b3-88dcf1af4820" InformativeScreenshot="559e34b59f13e66ee5433bd555af09b3.jpg" Reference="5bX88Svy0UKvaNBs9eEQhg/rHW0mXhWbEi251I9Vc8R6w" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ParaBank | Loan Request' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NGetText DisplayName="Get Text 'Approved'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,143.33333333333334" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="6a7d7d83-cee6-4628-a96f-d0b81bad27f7" Version="V5">
                             <uix:NGetText.Target>
-                              <uix:TargetAnchorable BrowserURL="parabank.parasoft.com/parabank/requestloan.htm" ContentHash="RRCoaprtAU-Z4BmSU3zKtw" DesignTimeRectangle="986, 830, 55, 22" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='newAccountId' tag='A' /&gt;" Guid="38f44f34-739f-48d8-8efb-6b023f95e937" InformativeScreenshot="3b81b3844e0d0c1b96f3a690c04795d9.jpg" Reference="5bX88Svy0UKvaNBs9eEQhg/6qPVChKprkalpUt1R9BBWg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ParaBank | Loan Request' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                              <uix:TargetAnchorable BrowserURL="parabank.parasoft.com/parabank/requestloan.htm" ContentHash="mA7cCJN_JEuxR7oeYyyfAQ" DesignTimeRectangle="931, 702, 529, 32" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl parentid='requestLoanResult' tag='TABLE' /&gt;&lt;webctrl id='loanStatus' tableRow='3' tag='TD' /&gt;" Guid="dfadfc7b-642f-4a40-a723-ddcb7c11e92b" InformativeScreenshot="78a7713ede0fd6cd789505a1e74bc4cb.jpg" Reference="5bX88Svy0UKvaNBs9eEQhg/23Y3X-MCWUyp2pc3IIIFiw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ParaBank | Loan Request' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
                             </uix:NGetText.Target>
                             <uix:NGetText.TextString>
                               <OutArgument x:TypeArguments="x:String">
-                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">loan_account_number</CSharpReference>
+                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">loan_status</CSharpReference>
                               </OutArgument>
                             </uix:NGetText.TextString>
                           </uix:NGetText>
-                          <Assign sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_4">
+                          <If sap:VirtualizedContainerService.HintSize="452,738" sap2010:WorkflowViewState.IdRef="If_3">
+                            <If.Condition>
+                              <InArgument x:TypeArguments="x:Boolean">
+                                <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">loan_status=="Approved"</CSharpValue>
+                              </InArgument>
+                            </If.Condition>
+                            <If.Then>
+                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,370.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NGetText DisplayName="Get Text '14232'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,143.33333333333334" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="6a7d7d83-cee6-4628-a96f-d0b81bad27f7" Version="V5">
+                                  <uix:NGetText.Target>
+                                    <uix:TargetAnchorable BrowserURL="parabank.parasoft.com/parabank/requestloan.htm" ContentHash="RRCoaprtAU-Z4BmSU3zKtw" DesignTimeRectangle="986, 830, 55, 22" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='newAccountId' tag='A' /&gt;" Guid="38f44f34-739f-48d8-8efb-6b023f95e937" InformativeScreenshot="3b81b3844e0d0c1b96f3a690c04795d9.jpg" Reference="5bX88Svy0UKvaNBs9eEQhg/6qPVChKprkalpUt1R9BBWg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ParaBank | Loan Request' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                                  </uix:NGetText.Target>
+                                  <uix:NGetText.TextString>
+                                    <OutArgument x:TypeArguments="x:String">
+                                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_8">loan_account_number</CSharpReference>
+                                    </OutArgument>
+                                  </uix:NGetText.TextString>
+                                </uix:NGetText>
+                                <Assign sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">
+                                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">out_step_logs_request</CSharpReference>
+                                    </OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22" xml:space="preserve">"Loan is approved with "+"  "+ loan_account_number+" ||"</CSharpValue>
+                                    </InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,227.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_7">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:Boolean">
+                                      <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_10">loan_success</CSharpReference>
+                                    </OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:Boolean">
+                                      <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">false</CSharpValue>
+                                    </InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_3">
+                            <ui:LogMessage.Message>
+                              <InArgument x:TypeArguments="x:Object">
+                                <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">"loan has status--"+loan_status</CSharpValue>
+                              </InArgument>
+                            </ui:LogMessage.Message>
+                          </ui:LogMessage>
+                          <Assign sap:VirtualizedContainerService.HintSize="452,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_5">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:String">
-                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">out_step_logs_request</CSharpReference>
+                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_11">out_step_logs_request</CSharpReference>
                               </OutArgument>
                             </Assign.To>
                             <Assign.Value>
                               <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15" xml:space="preserve">Environment.NewLine+"-----Loan is approved with "+"  "+ loan_account_number</CSharpValue>
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">out_step_logs_request+"loan has status "+loan_status+" ||"</CSharpValue>
                               </InArgument>
                             </Assign.Value>
                           </Assign>
                         </Sequence>
-                      </If.Then>
-                      <If.Else>
-                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,227.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                      </TryCatch.Try>
+                      <TryCatch.Catches>
+                        <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                          <ActivityAction x:TypeArguments="s:Exception">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                            </ActivityAction.Argument>
+                            <Sequence DisplayName="Catch {ExceptionType}" sap:VirtualizedContainerService.HintSize="486,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </Sequence>
+                          </ActivityAction>
+                        </Catch>
+                      </TryCatch.Catches>
+                      <TryCatch.Finally>
+                        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="486,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_15">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Assign sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_2">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Boolean">
-                                <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">loan_success</CSharpReference>
-                              </OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Boolean">
-                                <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">false</CSharpValue>
-                              </InArgument>
-                            </Assign.Value>
-                          </Assign>
                         </Sequence>
-                      </If.Else>
-                    </If>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1">
-                      <ui:LogMessage.Message>
-                        <InArgument x:TypeArguments="x:Object">
-                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">"loan has status--"+loan_status</CSharpValue>
-                        </InArgument>
-                      </ui:LogMessage.Message>
-                    </ui:LogMessage>
-                    <Assign sap:VirtualizedContainerService.HintSize="452,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_3">
-                      <Assign.To>
-                        <OutArgument x:TypeArguments="x:String">
-                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">out_step_logs_request</CSharpReference>
-                        </OutArgument>
-                      </Assign.To>
-                      <Assign.Value>
-                        <InArgument x:TypeArguments="x:String">
-                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">out_step_logs_request+Environment.NewLine+"-----loan has status "+loan_status</CSharpValue>
-                        </InArgument>
-                      </Assign.Value>
-                    </Assign>
+                      </TryCatch.Finally>
+                    </TryCatch>
                   </Sequence>
-                </TryCatch.Try>
-                <TryCatch.Catches>
-                  <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
-                    <ActivityAction x:TypeArguments="s:Exception">
-                      <ActivityAction.Argument>
-                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                      </ActivityAction.Argument>
-                      <Sequence DisplayName="Catch {ExceptionType}" sap:VirtualizedContainerService.HintSize="486,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </Sequence>
-                    </ActivityAction>
-                  </Catch>
-                </TryCatch.Catches>
-                <TryCatch.Finally>
-                  <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="486,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                </If.Then>
+                <If.Else>
+                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="522,757.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_10">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="488,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2">
+                      <ui:LogMessage.Message>
+                        <InArgument x:TypeArguments="x:Object">
+                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_26">"No initial deposit therefore could not complete the loan requesr"</CSharpValue>
+                        </InArgument>
+                      </ui:LogMessage.Message>
+                    </ui:LogMessage>
+                    <Assign sap:VirtualizedContainerService.HintSize="488,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_8">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">
+                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_12">out_step_logs_request</CSharpReference>
+                        </OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">
+                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_27" xml:space="preserve">out_step_logs_request +" No Downpayment  request denied"</CSharpValue>
+                        </InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="488,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_10">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">
+                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_14">loan_status</CSharpReference>
+                        </OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">
+                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">"Denied since no downpayment"</CSharpValue>
+                        </InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="488,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_9">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">
+                          <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_13">loan_success</CSharpReference>
+                        </OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">
+                          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_28">false</CSharpValue>
+                        </InArgument>
+                      </Assign.Value>
+                    </Assign>
                   </Sequence>
-                </TryCatch.Finally>
-              </TryCatch>
+                </If.Else>
+              </If>
             </Sequence>
           </ActivityAction>
         </uix:NApplicationCard.Body>

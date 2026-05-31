@@ -418,7 +418,7 @@
                             </Assign.To>
                             <Assign.Value>
                               <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_77" xml:space="preserve">out_step_logs +"----User account for  "+in_row["username"]+"created"</CSharpValue>
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_79" xml:space="preserve">out_step_logs +"User account for  "+in_row["username"]+"created||"</CSharpValue>
                               </InArgument>
                             </Assign.Value>
                           </Assign>
@@ -451,7 +451,7 @@
                             </Assign.To>
                             <Assign.Value>
                               <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_78">out_step_logs+Environment.NewLine+"-----Useraccount can not be created"</CSharpValue>
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_80">out_step_logs+" UserAccount can not be created|| "</CSharpValue>
                               </InArgument>
                             </Assign.Value>
                           </Assign>
